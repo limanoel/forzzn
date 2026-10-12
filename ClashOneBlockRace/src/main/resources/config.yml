@@ -1,0 +1,174 @@
+game:
+  min-players: 2
+  countdown-seconds: 30
+  countdown-announcements: [60, 45, 30, 20, 10, 5, 4, 3, 2, 1]
+  item-interval-seconds: 15
+  spawn-z-spacing: 15
+  spawn-y: 60
+  bedrock-y: 59
+  end-game-delay-seconds: 6
+  lobby-spawn:
+    mode: "WORLD_SPAWN"
+    world: "world"
+    x: 0.5
+    y: 64.0
+    z: 0.5
+    yaw: 0.0
+    pitch: 0.0
+
+border:
+  enabled: true
+  material: "RED_CONCRETE"
+  glass-material: "RED_STAINED_GLASS"
+  style: "PATTERN"
+  pattern:
+    solid-bottom: 2
+    solid-top: 2
+    stripe-height: 6
+    stripe-solid: 2
+  start-x-offset: -15
+  thickness: 2
+  min-y: 40
+  max-y: 100
+  extra-z-padding: 25
+  move-interval-ticks: 20
+  start-with-first-item: true
+  move-sound: ""
+
+direction-indicator:
+  enabled: true
+  text: "<gold><bold> "BAUE HIER LANG"
+  offset-x: 4
+  offset-y: 2
+
+items:
+  mode: "ALL_EXCEPT_BLACKLIST"
+  blacklist:
+    - "BEDROCK"
+    - "BARRIER"
+    - "STRUCTURE_VOID"
+    - "STRUCTURE_BLOCK"
+    - "JIGSAW"
+    - "COMMAND_BLOCK"
+    - "CHAIN_COMMAND_BLOCK"
+    - "REPEATING_COMMAND_BLOCK"
+    - "COMMAND_BLOCK_MINECART"
+    - "SPAWNER"
+    - "TRIAL_SPAWNER"
+    - "VAULT"
+    - "DEBUG_STICK"
+    - "KNOWLEDGE_BOOK"
+    - "LIGHT"
+  whitelist:
+    - "DIRT"
+    - "COBBLESTONE"
+    - "OAK_PLANKS"
+    - "IRON_INGOT"
+    - "DIAMOND"
+
+actionbar:
+  timer: "<yellow>Nächstes Item in: <gold><bold>%seconds%s</bold></gold></yellow>"
+
+titles:
+  countdown:
+    title: "§c§l%seconds%"
+    subtitle: "§eDas Spiel startet gleich..."
+    fade-in: 0
+    stay: 22
+    fade-out: 5
+
+  start:
+    title: "§a§lSTART!"
+    subtitle: "§fViel Erfolg!"
+    fade-in: 5
+    stay: 40
+    fade-out: 10
+
+  eliminated-void:
+    title: "§c§lAUSGESCHIEDEN!"
+    subtitle: "§7Du bist in die Leere gefallen"
+    fade-in: 10
+    stay: 60
+    fade-out: 20
+
+  eliminated-border:
+    title: "§c§lBORDER ERREICHT!"
+    subtitle: "§7Du wurdest von der Border eingeholt"
+    fade-in: 10
+    stay: 60
+    fade-out: 20
+
+  winner:
+    title: "§6§l★ SIEG! ★"
+    subtitle: "§aDu hast das Match gewonnen!"
+    fade-in: 10
+    stay: 80
+    fade-out: 20
+
+  game-end:
+    title: "§c§lMATCH BEENDET!"
+    subtitle: "§e%winner% §7hat gewonnen!"
+    fade-in: 10
+    stay: 80
+    fade-out: 20
+
+  draw:
+    title: "§c§lUNENTSCHIEDEN!"
+    subtitle: "§7Niemand hat überlebt!"
+    fade-in: 10
+    stay: 70
+    fade-out: 20
+
+messages:
+  prefix: "§8[§6OneBlockRace§8] "
+  match-preparing: "<yellow>MultiPlayer Match wird vorbereitet..."
+  match-teleported: "§a§lErfolgreich in der Map teleportiert"
+  players-in-lobby: "§7Spieler in dieser Lobby: §e%count%"
+  player-joined: "§e%player% §7hat das Match betreten."
+  player-left: "§e%player% §7hat das Match verlassen."
+  countdown-announcement: "§eDas Spiel startet in §c%seconds% §eSekunden!"
+  countdown-cancelled: "§cEs sind nicht mehr genügend Spieler im Match. Countdown abgebrochen!"
+  game-started: "§a§lDas Spiel hat JETZT begonnen! Viel Glück!"
+  item-received: "§2+1x §e§l%item%"
+  eliminated-void-chat: "§c%player% §7ist ausgeschieden und nun Zuschauer!"
+  eliminated-border-chat: "§c%player% §7wurde von der Border eingeholt und ist nun Zuschauer!"
+  type-leave-hint: "§cType /leave to leave the game"
+  spectator-teleport-blocked: "§cTeleportieren ist als Zuschauer deaktiviert! Nutze /leave, um das Match zu verlassen."
+  leave-success: "§aDu hast das Match verlassen."
+  not-in-match: "§cDu bist aktuell in keinem OneBlock-Match!"
+  only-players: "Nur Spieler können diesen Befehl ausführen!"
+  inventory-restored-rejoin: "§a§lDein Inventar wurde nach einem Disconnect wiederhergestellt!"
+  error-world-create: "§c§lFEHLER: Es gab einen Fehler beim erstellen der Map"
+  winner-banner-header: "§6§m--------------------------------"
+  winner-banner-title: "§a§l  ONEBLOCK RACE BEENDET!"
+  winner-banner-winner: "§e  Gewinner: §f%winner%"
+  winner-banner-footer: "§6§m--------------------------------"
+
+gui:
+  title: "<gold><bold>OneBlockRace"
+  size: 27
+  join-item:
+    material: "NETHERITE_SWORD"
+    slot: 13
+    name: "<dark_aqua><bold>OneBlockRace - Join"
+    lore:
+      - ""
+      - "<white>Klicke, um ein OneBlockRace zu Joinen"
+  barrier-item:
+    material: "BARRIER"
+    slot: 26
+    name: "<dark_red><bold>Abbrechen"
+    lore:
+      - ""
+      - "<white>Klicke hier, um das Inventar zu schließen"
+
+sounds:
+  countdown-tick: "BLOCK_NOTE_BLOCK_PLING"
+  game-start: "ENTITY_PLAYER_LEVELUP"
+  item-received: "ENTITY_ITEM_PICKUP"
+  elimination: "ENTITY_PLAYER_HURT"
+  winner: "UI_TOAST_CHALLENGE_COMPLETE"
+  game-end: "ENTITY_PLAYER_LEVELUP"
+  draw: "ENTITY_WITHER_DEATH"
+  gui-click: "UI_BUTTON_CLICK"
+  gui-open: "BLOCK_CHEST_OPEN"

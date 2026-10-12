@@ -1,0 +1,15 @@
+dev\limanoel\clashOneBlockRace\manager\ConfigManager$BorderStyle.class
+dev\limanoel\clashOneBlockRace\commands\LeaveCommand.class
+dev\limanoel\clashOneBlockRace\manager\GameManager.class
+dev\limanoel\clashOneBlockRace\listener\GameStartListener$2.class
+dev\limanoel\clashOneBlockRace\manager\BorderManager$BorderData.class
+dev\limanoel\clashOneBlockRace\manager\GameManager$1.class
+dev\limanoel\clashOneBlockRace\manager\BorderManager$1.class
+dev\limanoel\clashOneBlockRace\manager\ConfigManager.class
+dev\limanoel\clashOneBlockRace\commands\OneBlockRaceCommand.class
+dev\limanoel\clashOneBlockRace\manager\InventoryManager.class
+dev\limanoel\clashOneBlockRace\ClashOneBlockRace.class
+dev\limanoel\clashOneBlockRace\listener\GameStartListener$1.class
+dev\limanoel\clashOneBlockRace\manager\WorldManager.class
+dev\limanoel\clashOneBlockRace\manager\BorderManager.class
+dev\limanoel\clashOneBlockRace\listener\GameStartListener.class

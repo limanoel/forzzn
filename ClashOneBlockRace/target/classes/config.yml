@@ -1,0 +1,223 @@
+# =====================================================================
+#                      ClashOneBlockRace Config
+# =====================================================================
+
+game:
+  # Minimale Spieleranzahl für den Spielstart
+  min-players: 2
+  # Countdown in Sekunden bis zum Spielstart
+  countdown-seconds: 30
+  # Sekunden-Intervalle für Chat-Nachrichten während des Countdowns
+  countdown-announcements: [60, 45, 30, 20, 10, 5, 4, 3, 2, 1]
+  # Sekunden-Intervall, in dem Spieler ein neues Item erhalten
+  item-interval-seconds: 15
+  # Abstand zwischen Spielern beim Spawnen
+  spawn-z-spacing: 15
+  # Spawnhöhe
+  spawn-y: 60
+  # Y-Koordinate des Startblocks
+  bedrock-y: 59
+  # Wartezeit am Spielende, bevor alle zurück zum Spawn teleportiert werden
+  end-game-delay-seconds: 6
+  # Wohin die Spieler nach dem Match teleportiert werden.
+  # Modus: "WORLD_SPAWN" = Spawn der Hauptwelt | "POSITION" = feste Koordinaten unten
+  lobby-spawn:
+    mode: "WORLD_SPAWN"
+    # Nur relevant wenn mode: "POSITION"
+    world: "world"
+    x: 0.5
+    y: 64.0
+    z: 0.5
+    yaw: 0.0
+    pitch: 0.0
+
+border:
+  # Ob die Red Concrete Border aktiviert ist
+  enabled: true
+  # Block-Material der Border (feste/solide Blöcke)
+  material: "RED_CONCRETE"
+  # Glas-Material der Border, nur relevant wenn style: "PATTERN"
+  glass-material: "RED_STAINED_GLASS"
+  # Aussehen der Border:
+  #   "PLAIN"   = Einfarbig
+  #   "PATTERN" = Muster
+  style: "PATTERN"
+  # Nur relevant wenn style: "PATTERN".
+  pattern:
+    # Wie viele Blöcke direkt oberhalb der Bedrock-Ebene immer solide (kein Glas) sind
+    solid-bottom: 2
+    # Wie viele Blöcke am oberen Rand der Border immer solide (kein Glas) sind
+    solid-top: 2
+    # Wiederholungshöhe des Streifenmusters dazwischen (in Blöcken)
+    stripe-height: 6
+    # Wie viele Blöcke pro Wiederholung solide sind, der Rest ist Glas
+    stripe-solid: 2
+  # Start-X-Position. So 15 Blöcke hinter dem Bedrock.
+  start-x-offset: -15
+  # Dicke der Border
+  thickness: 2
+  # Minimale Höhe der Border
+  min-y: 40
+  # Maximale Höhe der Border
+  max-y: 100
+  # Zusätzlicher Puffer auf der Z-Achse (links und rechts über die äußersten Spieler hinaus)
+  extra-z-padding: 25
+  # Nach wie vielen Ticks bewegt sich die Border um 1 Block nach vorne (20 Ticks = 1 Sekunde)
+  move-interval-ticks: 20
+  # Bewegt sich die Border erst ab dem Erhalt des 1. Items (true) oder direkt bei Spielstart (false)
+  start-with-first-item: true
+  # Sound bei Border-Bewegung (leer lassen für keinen Sound)
+  move-sound: ""
+
+# Anzeige, die Spielern die Baurichtung (+X) zeigt, damit klar ist wohin sie fliehen müssen
+direction-indicator:
+  enabled: true
+  # Text der schwebenden Anzeige über dem Startblock jedes Spielers
+  text: "<gold><bold> "BAUE HIER LANG"
+  # Wie viele Blöcke in +X Richtung (Baurichtung) vor dem Bedrock die Anzeige schwebt
+  offset-x: 4
+  # Höhe über der Spawn-Y-Koordinate
+  offset-y: 2
+
+items:
+  # Modus für Item-Pool: "ALL_EXCEPT_BLACKLIST" oder "WHITELIST"
+  mode: "ALL_EXCEPT_BLACKLIST"
+  # Items, die niemals vergeben werden dürfen
+  blacklist:
+    - "BEDROCK"
+    - "BARRIER"
+    - "STRUCTURE_VOID"
+    - "STRUCTURE_BLOCK"
+    - "JIGSAW"
+    - "COMMAND_BLOCK"
+    - "CHAIN_COMMAND_BLOCK"
+    - "REPEATING_COMMAND_BLOCK"
+    - "COMMAND_BLOCK_MINECART"
+    - "SPAWNER"
+    - "TRIAL_SPAWNER"
+    - "VAULT"
+    - "DEBUG_STICK"
+    - "KNOWLEDGE_BOOK"
+    - "LIGHT"
+  # Nur aktiv wenn mode auf "WHITELIST" gesetzt ist
+  whitelist:
+    - "DIRT"
+    - "COBBLESTONE"
+    - "OAK_PLANKS"
+    - "IRON_INGOT"
+    - "DIAMOND"
+
+actionbar:
+  # Actionbar-Text während des Spiels (%seconds% = Sekunden bis zum nächsten Item)
+  timer: "<yellow>Nächstes Item in: <gold><bold>%seconds%s</bold></gold></yellow>"
+
+titles:
+  # Countdown-Titel vor dem Start (5, 4, 3, 2, 1)
+  countdown:
+    title: "§c§l%seconds%"
+    subtitle: "§eDas Spiel startet gleich..."
+    fade-in: 0
+    stay: 22
+    fade-out: 5
+
+  # Start-Titel beim Beginn
+  start:
+    title: "§a§lSTART!"
+    subtitle: "§fViel Erfolg!"
+    fade-in: 5
+    stay: 40
+    fade-out: 10
+
+  # Ausscheiden durch Void / Leere
+  eliminated-void:
+    title: "§c§lAUSGESCHIEDEN!"
+    subtitle: "§7Du bist in die Leere gefallen"
+    fade-in: 10
+    stay: 60
+    fade-out: 20
+
+  # Ausscheiden durch die Red Concrete Border
+  eliminated-border:
+    title: "§c§lBORDER ERREICHT!"
+    subtitle: "§7Du wurdest von der Border eingeholt"
+    fade-in: 10
+    stay: 60
+    fade-out: 20
+
+  # Titel für den Gewinner
+  winner:
+    title: "§6§l★ SIEG! ★"
+    subtitle: "§aDu hast das Match gewonnen!"
+    fade-in: 10
+    stay: 80
+    fade-out: 20
+
+  # Titel für alle anderen (Zuschauer), wenn ein Spieler gewonnen hat
+  game-end:
+    title: "§c§lMATCH BEENDET!"
+    subtitle: "§e%winner% §7hat gewonnen!"
+    fade-in: 10
+    stay: 80
+    fade-out: 20
+
+  # Unentschieden (alle gestorben)
+  draw:
+    title: "§c§lUNENTSCHIEDEN!"
+    subtitle: "§7Niemand hat überlebt!"
+    fade-in: 10
+    stay: 70
+    fade-out: 20
+
+messages:
+  prefix: "§8[§6OneBlockRace§8] "
+  match-preparing: "<yellow>MultiPlayer Match wird vorbereitet..."
+  match-teleported: "§a§lErfolgreich in der Map teleportiert"
+  players-in-lobby: "§7Spieler in dieser Lobby: §e%count%"
+  player-joined: "§e%player% §7hat das Match betreten."
+  player-left: "§e%player% §7hat das Match verlassen."
+  countdown-announcement: "§eDas Spiel startet in §c%seconds% §eSekunden!"
+  countdown-cancelled: "§cEs sind nicht mehr genügend Spieler im Match. Countdown abgebrochen!"
+  game-started: "§a§lDas Spiel hat JETZT begonnen! Viel Glück!"
+  item-received: "§2+1x §e§l%item%"
+  eliminated-void-chat: "§c%player% §7ist ausgeschieden und nun Zuschauer!"
+  eliminated-border-chat: "§c%player% §7wurde von der Border eingeholt und ist nun Zuschauer!"
+  type-leave-hint: "§cType /leave to leave the game"
+  spectator-teleport-blocked: "§cTeleportieren ist als Zuschauer deaktiviert! Nutze /leave, um das Match zu verlassen."
+  leave-success: "§aDu hast das Match verlassen."
+  not-in-match: "§cDu bist aktuell in keinem OneBlock-Match!"
+  only-players: "Nur Spieler können diesen Befehl ausführen!"
+  inventory-restored-rejoin: "§a§lDein Inventar wurde nach einem Disconnect wiederhergestellt!"
+  error-world-create: "§c§lFEHLER: Es gab einen Fehler beim erstellen der Map"
+  winner-banner-header: "§6§m--------------------------------"
+  winner-banner-title: "§a§l  ONEBLOCK RACE BEENDET!"
+  winner-banner-winner: "§e  Gewinner: §f%winner%"
+  winner-banner-footer: "§6§m--------------------------------"
+
+gui:
+  title: "<gold><bold>OneBlockRace"
+  size: 27
+  join-item:
+    material: "NETHERITE_SWORD"
+    slot: 13
+    name: "<dark_aqua><bold>OneBlockRace - Join"
+    lore:
+      - ""
+      - "<white>Klicke, um ein OneBlockRace zu Joinen"
+  barrier-item:
+    material: "BARRIER"
+    slot: 26
+    name: "<dark_red><bold>Abbrechen"
+    lore:
+      - ""
+      - "<white>Klicke hier, um das Inventar zu schließen"
+
+sounds:
+  countdown-tick: "BLOCK_NOTE_BLOCK_PLING"
+  game-start: "ENTITY_PLAYER_LEVELUP"
+  item-received: "ENTITY_ITEM_PICKUP"
+  elimination: "ENTITY_PLAYER_HURT"
+  winner: "UI_TOAST_CHALLENGE_COMPLETE"
+  game-end: "ENTITY_PLAYER_LEVELUP"
+  draw: "ENTITY_WITHER_DEATH"
+  gui-click: "UI_BUTTON_CLICK"
+  gui-open: "BLOCK_CHEST_OPEN"
